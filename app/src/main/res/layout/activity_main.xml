@@ -69,15 +69,15 @@
         </LinearLayout>
 
         <Spinner
+            android:id="@+id/spinnerKota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Spinner
             android:id="@+id/spinnerProvinsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/Provinsi" />
-
-        <Spinner
-            android:id="@+id/spinnerKota"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textViewType"
@@ -87,25 +87,26 @@
             android:text="Type Motor" />
 
         <RadioGroup
+            android:id="@+id/radioGroupType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:id="@+id/radioButtonSport"
+                android:id="@+id/radioButtonS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="Sport" />
 
             <RadioButton
-                android:id="@+id/radioButtonUnderbone"
+                android:id="@+id/radioButtonU"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="Underbone" />
 
             <RadioButton
-                android:id="@+id/radioButtonMatic"
+                android:id="@+id/radioButtonM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"

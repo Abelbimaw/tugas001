@@ -7,6 +7,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -17,11 +19,12 @@ public class MainActivity extends AppCompatActivity {
     EditText etNama, etAlamat, etType;
     TextView tvHasil, tvBonus;
     Spinner spProvinsi, spKota;
-    String[][] arKota = {{"Kediri", "Blitar", "Tulungagung", "Nganjuk", "Malang"},
-            {"Surakarta", "Klaten", "Yogyakarta", "Sragen"},
-            {"Bandung", "Depok", "Sukabumi", "Tasikmalaya"}};
+    String[][] arKota = {{"Kediri", "Malang", "Blitar", "Tulungagung"}, {"Surakarta", "Klaten", "Yogyakarta"}, {"Bandung", "Depok", "Cirebon"}};
+
     ArrayList<String> listKota = new ArrayList<>();
     ArrayAdapter<String> adapter;
+    RadioButton rbS, rbU, rbM;
+    RadioGroup rgType;
     Button bOK;
 
     @Override
@@ -32,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
         etNama = (EditText) findViewById(R.id.editTextNama);
         etAlamat = (EditText) findViewById(R.id.editTextAlamat);
         etType = (EditText) findViewById(R.id.editTextType);
+
+        spProvinsi = (Spinner) findViewById(R.id.spinnerProvinsi);
+        spKota = (Spinner) findViewById(R.id.spinnerKota);
+
+        rbS = (RadioButton) findViewById(R.id.radioButtonS);
+        rbU = (RadioButton) findViewById(R.id.radioButtonU);
+        rbM = (RadioButton) findViewById(R.id.radioButtonM);
+        rgType = (RadioGroup) findViewById(R.id.radioGroupType);
 
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
         tvBonus = (TextView) findViewById(R.id.textViewBonus);
@@ -45,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        spProvinsi = (Spinner) findViewById(R.id.spinnerProvinsi);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listKota);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spKota.setAdapter(adapter);
@@ -57,22 +67,22 @@ public class MainActivity extends AppCompatActivity {
                 listKota.addAll(Arrays.asList(arKota[pos]));
                 adapter.notifyDataSetChanged();
                 spKota.setSelection(0);
-
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
+
+
     }
+
 
     private void doProses() {
         if (isValid()) {
             String nama = etNama.getText().toString();
             String alamat = etAlamat.getText().toString();
-            tvHasil.setText(nama + " Beralamat " + alamat);
+            tvHasil.setText("Nama " + nama + " Beralamat " + alamat + " Kota " + spKota.getSelectedItem().toString() + " Provinsi " + spProvinsi.getSelectedItem().toString());
         }
     }
 
