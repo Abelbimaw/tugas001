@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -70,15 +69,25 @@
 
         <TextView
             android:id="@+id/textViewProvinsi"
-            android:layout_width="wrap_content"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:layout_width="167dp"
             android:layout_height="wrap_content"
-            android:text="Provinsi Pemesan" />
+            android:background="@color/material_deep_teal_500"
+            android:text="Asal Provinsi Pemesan" />
 
         <Spinner
             android:id="@+id/spinnerPemesan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/Provinsi" />
+
+        <TextView
+            android:id="@+id/textViewType"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:background="@color/material_deep_teal_500"
+            android:text="Type Motor" />
 
         <RadioGroup
             android:id="@+id/radioGroupType"
@@ -107,6 +116,13 @@
                 android:text="Matic" />
 
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/textViewBonus"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:text="Bonus" />
 
         <CheckBox
             android:id="@+id/checkBoxH"
@@ -141,26 +157,9 @@
         <TextView
             android:id="@+id/textViewHasil"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/buttonOK"
-            android:gravity="left"
+            android:layout_height="wrap_content"
             tools:text="Hasil" />
 
-        <TextView
-            android:id="@+id/textViewType"
-            style="@style/Base.TextAppearance.AppCompat.Subhead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Type Motor" />
-
-        <TextView
-            android:id="@+id/textViewBonus"
-            style="@style/Base.TextAppearance.AppCompat.Subhead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bonus" />
-
     </LinearLayout>
+
 </ScrollView>

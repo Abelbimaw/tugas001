@@ -53,31 +53,28 @@ public class MainActivity extends AppCompatActivity {
         String nama = etNama.getText().toString();
         String alamat = etAlamat.getText().toString();
         String hasil = null;
-        String bonus = " Bonus yang anda pilih :  \n;
+        String bonus = "";
 
 
         if (rgType.getCheckedRadioButtonId() != -1) {
             RadioButton rb = (RadioButton) findViewById(rgType.getCheckedRadioButtonId());
             hasil = rb.getText().toString();
         }
-
         if (hasil == null) {
             tvHasil.setText("Belum Mengisi Type Motor");
         } else {
             tvHasil.setText("Type Motor Anda : " + hasil);
         }
         int starlen = bonus.length();
-        if (cbH.isChecked())
-            bonus += cbH.getText() + "\n";
-        if (cbJ.isChecked())
-            bonus += cbJ.getText() + "\n";
-        if (cbJH.isChecked())
-            bonus += cbJH.getText() + "\n";
+        if (cbH.isChecked()) bonus += cbH.getText() + ", ";
+        if (cbJ.isChecked()) bonus += cbJ.getText() + ", ";
+        if (cbJH.isChecked()) bonus += cbJH.getText() + ", ";
 
         if (bonus.length() == starlen)
             bonus += "Tidak ada Bonus";
 
-        tvhasil;
+        tvHasil.setText(" Nama : " + nama + "\n Alamat : " + alamat + "\n Asal Provinsi Pemesan : " + spProvinsi.getSelectedItem().toString() +
+                "\n Type motor : " + hasil + " \n Bonus yang anda pilih : " + bonus);
     }
 
     private boolean isValid() {
