@@ -71,7 +71,8 @@
         <Spinner
             android:id="@+id/spinnerProvinsi"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:entries="@array/Provinsi" />
 
         <Spinner
             android:id="@+id/spinnerKota"
