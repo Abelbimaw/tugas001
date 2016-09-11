@@ -12,11 +12,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    EditText etNama, etAlamat, etType;
-    TextView tvHasil, tvBonus, tvProvinsi, tvKota;
-    Spinner spProvinsi, spKota;
+    EditText etNama, etAlamat;
+    TextView tvHasil, tvBonus, tvProvinsi;
+    Spinner spProvinsi;
     CheckBox cbH, cbJ, cbJH;
-    RadioButton rb;
     RadioGroup rgType;
     Button bOK;
 
@@ -24,11 +23,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         etNama = (EditText) findViewById(R.id.editTextNama);
         etAlamat = (EditText) findViewById(R.id.editTextAlamat);
-        etType = (EditText) findViewById(R.id.editTextType);
-        spProvinsi = (Spinner) findViewById(R.id.spinnerProvinsi);
-        spKota = (Spinner) findViewById(R.id.spinnerKota);
+        spProvinsi = (Spinner) findViewById(R.id.spinnerPemesan);
         rgType = (RadioGroup) findViewById(R.id.radioGroupType);
         cbH = (CheckBox) findViewById(R.id.checkBoxH);
         cbJ = (CheckBox) findViewById(R.id.checkBoxJ);
@@ -37,22 +35,26 @@ public class MainActivity extends AppCompatActivity {
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
         tvBonus = (TextView) findViewById(R.id.textViewBonus);
         tvProvinsi = (TextView) findViewById(R.id.textViewProvinsi);
-        tvKota = (TextView) findViewById(R.id.textViewKota);
 
         bOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doProses();
-                doPilih();
-                doClick();
 
             }
         });
 
     }
 
-    private void doClick() {
+    private void doProses() {
+        if (isValid()) {
+
+        }
+        String nama = etNama.getText().toString();
+        String alamat = etAlamat.getText().toString();
         String hasil = null;
+        String bonus = " Bonus yang anda pilih :  \n;
+
 
         if (rgType.getCheckedRadioButtonId() != -1) {
             RadioButton rb = (RadioButton) findViewById(rgType.getCheckedRadioButtonId());
@@ -64,17 +66,18 @@ public class MainActivity extends AppCompatActivity {
         } else {
             tvHasil.setText("Type Motor Anda : " + hasil);
         }
-    }
+        int starlen = bonus.length();
+        if (cbH.isChecked())
+            bonus += cbH.getText() + "\n";
+        if (cbJ.isChecked())
+            bonus += cbJ.getText() + "\n";
+        if (cbJH.isChecked())
+            bonus += cbJH.getText() + "\n";
 
-    private void doProses() {
-        if (isValid()) {
-            String nama = etNama.getText().toString();
-            String alamat = etAlamat.getText().toString();
-            tvHasil.setText(" Nama : " + nama + "\n Alamat  : " + alamat +
-                    "\n Pengiriman ke Provinsi : " + spProvinsi.getSelectedItem().toString() +
-                    "\n Ke Kota " + spKota.getSelectedItem().toString());
+        if (bonus.length() == starlen)
+            bonus += "Tidak ada Bonus";
 
-        }
+        tvhasil;
     }
 
     private boolean isValid() {
@@ -104,10 +107,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return valid;
-    }
-
-    private void doPilih() {
-
     }
 
 
