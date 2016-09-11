@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         int starlen = bonus.length();
         if (cbH.isChecked()) bonus += cbH.getText() + ", ";
         if (cbJ.isChecked()) bonus += cbJ.getText() + ", ";
-        if (cbJH.isChecked()) bonus += cbJH.getText() + ", ";
+        if (cbJH.isChecked()) bonus += cbJH.getText();
 
         if (bonus.length() == starlen)
             bonus += "Tidak ada Bonus";
